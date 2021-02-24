@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  web:
+    build: src/main/java/io/github/tambonbon/musicappspring/models
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"

@@ -10,28 +10,28 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "albums")
-//@JsonIdentityInfo(
-//        generator = ObjectIdGenerators.PropertyGenerator.class,
-//        property = "albumId"
-//)
 @JsonIgnoreProperties({"hibernateLazyInitalizer", "handler"})
+@IdClass(AlbumId.class)
 public class Album {
+//    @EmbeddedId
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "album_id")
+//    @Getter
+//    @Setter
+//    private AlbumId albumId;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "album_id")
-    @Getter
-    @Setter
-    private Long albumId;
-
-    @Column(name = "name" )
-    @Getter
-    @Setter
-    private String name;
-
-    @Column(name = "artist" )
+    @Column(name = "artist")
     @Getter
     @Setter
     private String artist;
+
+    @Id
+    @Column(name = "name")
+    @Getter
+    @Setter
+    private String name;
 
     @Column(name = "genre" )
     @Getter
@@ -45,8 +45,16 @@ public class Album {
     @ManyToMany(targetEntity = Song.class, cascade = CascadeType.ALL)
     @JoinTable(
             name = "albums_songs",
-            joinColumns = @JoinColumn(name = "album_id"), // FK
-            inverseJoinColumns = @JoinColumn(name = "song_id")
+            joinColumns =
+                    {
+//                            @JoinColumn(name = "album_id"),
+                    @JoinColumn(name = "artist"),
+                    @JoinColumn(name = "name")}, // FK
+            inverseJoinColumns = {
+//                    @JoinColumn(name = "song_id"),
+                    @JoinColumn(name = "title"),
+                    @JoinColumn(name = "duration")
+            }
     )
     @Getter
     @Setter

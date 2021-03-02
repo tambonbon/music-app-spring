@@ -18,9 +18,9 @@ public interface AlbumRepository extends JpaRepository<Album, Long> {
 //    @PersistenceContext
 //    EntityManager entityManager;
 
-    List<Album> findByNameContaining(String name);
-    Album findFirstByNameContaining(String name);
-    List<Album> findBySongsContaining(String name);
+//    List<Album> findAlbumByAlbumId_Name(String name);
+//    Album findFirstByNameContaining(String name);
+//    List<Album> findBySongsContaining(String name);
 //    public List<Album> list() {
 //        return albumRepository.findAll();
 //    }

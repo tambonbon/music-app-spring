@@ -28,15 +28,15 @@ public class MusicAppSpringApplication {
 //            }
 //        };
 //    }
-    @Bean
-    public CommandLineRunner loadData(SongRepository songRepository) {
-        return args -> {
-            songRepository.save(new Song("Lover", "03:20"));
-            songRepository.save(new Song("Thriller", "03:40"));
-            songRepository.save(new Song("Billie Jeans", "04:10"));
-            songRepository.save(new Song("Here comes the sun", "03:30"));
-
-        };
-    }
+//    @Bean
+//    public CommandLineRunner loadData(SongRepository songRepository) {
+//        return args -> {
+//            songRepository.save(new Song("Lover", "03:20"));
+//            songRepository.save(new Song("Thriller", "03:40"));
+//            songRepository.save(new Song("Billie Jeans", "04:10"));
+//            songRepository.save(new Song("Here comes the sun", "03:30"));
+//
+//        };
+//    }
 
 }

@@ -26,10 +26,8 @@ public class AlbumController {
     // Actions down here
 
     @PostMapping
-//    @ResponseBody
     public void createAlbum(@RequestBody Album album) {
         albumService.addAlbum(album);
-
     }
 
     @GetMapping

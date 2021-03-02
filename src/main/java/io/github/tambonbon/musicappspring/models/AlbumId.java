@@ -1,16 +1,33 @@
 package io.github.tambonbon.musicappspring.models;
 
-import java.io.Serializable;
-import java.util.Objects;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
+//@Embeddable
 public class AlbumId implements Serializable {
+
+//    private Long albumId;
+
     private String artist;
+
     private String name;
+
+//    public AlbumId(Long albumId, String artist, String name) {
+//        this.albumId = albumId;
+//        this.artist = artist;
+//        this.name = name;
+//    }
 
     public AlbumId(String artist, String name) {
         this.artist = artist;
         this.name = name;
     }
+
+    public AlbumId() {    }
 
     @Override
     public boolean equals(Object o) {

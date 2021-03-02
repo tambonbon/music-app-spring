@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface SongRepository extends JpaRepository<Song, Long> {
-    List<Song> findByNameContaining(String song);
-    Song findFirstByNameContaining(String song);
+//    List<Song> findByNameContaining(String song);
+//    Song findFirstByNameContaining(String song);
 }

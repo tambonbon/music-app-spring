@@ -21,24 +21,24 @@ public interface AlbumService {
     public void addAlbums(List<Album> albums) ;
 
     @Service("albumServiceImpl")
-    class AlbumServiceImpl implements AlbumService{
+    class AlbumServiceImpl implements AlbumService {
         @Autowired
         private AlbumRepository albumRepository;
 
         @Transactional
-        public List<Album> getAlbums(){
+        public List<Album> getAlbums() {
             List<Album> albums = new ArrayList<>();
             albumRepository.findAll().forEach(albums::add);
             return albums;
         }
 
         @Transactional
-        public void addAlbum(Album album){
+        public void addAlbum(Album album) {
             albumRepository.saveAndFlush(album);
         }
 
         @Transactional
-        public void addAlbums(List<Album> albums){
+        public void addAlbums(List<Album> albums) {
             for (Album album : albums) {
                 albumRepository.save(album);
             }

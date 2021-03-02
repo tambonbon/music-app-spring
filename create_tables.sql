@@ -10,7 +10,7 @@ CREATE TABLE songs
 (
     song_id SERIAL PRIMARY KEY,
     name varchar(20) NOT NULL,
-    duration TIME
+    duration varchar(20) NOT NULL
 );
 
 CREATE TABLE albums_songs

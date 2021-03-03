@@ -40,8 +40,9 @@ public class AlbumController {
         return albumService.getAlbums();
     }
 
-    @GetMapping(value = "/{name}/{artist}")
-    public ResponseEntity<Object> getAlbum(@PathVariable String name, @PathVariable String artist){
+    @GetMapping(value = "/{artist}", params = {"name"})
+    @ResponseBody
+    public ResponseEntity<Object> getAlbum(@RequestParam String name, @PathVariable String artist){
         return albumService.getAlbum(name, artist);
     }
 //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

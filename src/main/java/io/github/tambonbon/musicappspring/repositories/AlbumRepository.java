@@ -1,17 +1,14 @@
 package io.github.tambonbon.musicappspring.repositories;
 
 import io.github.tambonbon.musicappspring.models.Album;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
+import io.github.tambonbon.musicappspring.models.AlbumId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
-import java.util.Optional;
 @Repository
-public interface AlbumRepository extends JpaRepository<Album, Long> {
+public interface AlbumRepository extends JpaRepository<Album, AlbumId> {
 //    @Autowired
 //    private AlbumRepository albumRepository;
 
@@ -19,7 +16,13 @@ public interface AlbumRepository extends JpaRepository<Album, Long> {
 //    EntityManager entityManager;
 
 //    List<Album> findAlbumByAlbumId_Name(String name);
-//    Album findFirstByNameContaining(String name);
+    @Query(value =
+            "SELECT * " +
+                    "FROM albums a " +
+                    "WHERE a.name = :name AND a.artist = :artist",
+            nativeQuery = true
+    )
+    Album findAlbum(@Param("name") String name,@Param("artist") String artist);
 //    List<Album> findBySongsContaining(String name);
 //    public List<Album> list() {
 //        return albumRepository.findAll();
